@@ -17,17 +17,29 @@ urlMain = "https://www.freitag.ch/en/shop/bags"
 driver.get(urlMain)
 time.sleep(1)
 elemfilter = driver.find_elements(By.CLASS_NAME ,'store-products-list')
-
+urlModel = []
 
 for i in elemfilter:
-
     elemUrl = i.find_elements(By.TAG_NAME,'h3')
 
-    for u in elemUrl:
-        print(u.text)
-        print(u.geturl)
+    for j in elemUrl:
+        pureUrl = j.find_element(By.TAG_NAME,'a')
+        url = pureUrl.get_attribute('href')
+        url = url.split('?')[0]
+        # print(url)
+        urlModel.append(url)
         
-        
+# print(urlModel)
+
+for k in urlModel:
+    driver.get(k)
+    driver.find_element(By.ID,'products-load-all').click()
+    productList = driver.find_elements(By.CLASS_NAME,'products-list')
+
+    for l in productList:
+        print(l.text)
+    
+    break
 
 print('All Done')
 
