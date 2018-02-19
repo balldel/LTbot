@@ -29,17 +29,24 @@ for i in elemfilter:
         # print(url)
         urlModel.append(url)
         
-# print(urlModel)
+print(urlModel)
 
 for k in urlModel:
     driver.get(k)
+    time.sleep(1)
     driver.find_element(By.ID,'products-load-all').click()
-    productList = driver.find_elements(By.CLASS_NAME,'products-list')
-
-    for l in productList:
-        print(l.text)
     
-    break
+    allProduct = driver.find_element(By.CLASS_NAME,'products-list')
+    product = allProduct.find_elements(By.TAG_NAME,'a')
+    m = 1
+    for l in product:
+        
+        productUrl = l.get_attribute('href')
+        imgtag = l.find_element(By.TAG_NAME,'img')
+        productImg = imgtag.get_attribute('src')
+        print(m,productUrl,productImg)
+        m += 1
+    # break
 
 print('All Done')
 
