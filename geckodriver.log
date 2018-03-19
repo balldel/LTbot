@@ -995,3 +995,89 @@ JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 
 ponents/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
 JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
 1521459174997	Marionette	INFO	Ceased listening
+1521462944049	geckodriver	INFO	geckodriver 0.19.1
+1521462944057	geckodriver	INFO	Listening on 127.0.0.1:58385
+1521462947149	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.bF4O8PsVO8h8"
+1521462949881	Marionette	INFO	Listening on port 58393
+1521462950274	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED:1521463197532	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.dHP0r72bjllx"
+1521463199618	Marionette	INFO	Listening on port 59279
+1521463200652	Marionette	WARN	TLS certificate errors will be ignored for this session
+1	Marionette	INFO	Ceased listening
+1521463385748	geckodriver	INFO	geckodriver 0.19.1
+1521463385755	geckodriver	INFO	Listening on 127.0.0.1:59981
+1521463388820	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.WSxCg0URQstO"
+1521463390737	Marionette	INFO	Listening on port 59989
+1521463390892	Marionette	WARN	TLS certificate errors will be ignored for this session
+1521464314062	geckodriver	INFO	geckodriver 0.19.1
+1521464314069	geckodriver	INFO	Listening on 127.0.0.1:60507
+1521464317152	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.zFUGhKAdyOux"
+1521464319065	Marionette	INFO	Listening on port 60516
+1521464319170	Marionette	WARN	TLS certificate errors will be ignored for this session
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+console.error: 
+  Protocol error (noSuchActor): No such actor for ID: server1.conn1.child1/highlighter32
+JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1521468283926	Marionette	INFO	Ceased listening
+8
+1521465276240	Marionette	WARN	TLS certificate errors will be ignored for this session
+1521465638555	geckodriver	INFO	geckodriver 0.19.1
+1521465638562	geckodriver	INFO	Listening on 127.0.0.1:63087
+1521465641649	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.2NB7VIsfeFhA"
+1521465643753	Marionette	INFO	Listening on port 63095
+1521465644768	Marionette	WARN	TLS certificate errors will be ignored for this session
+1521465820057	geckodriver	INFO	geckodriver 0.19.1
+1521465820064	geckodriver	INFO	Listening on 127.0.0.1:63758
+1521465823151	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.1sx813P1x3wK"
+1521465825301	Marionette	INFO	Listening on port 63766
+1521465826270	Marionette	WARN	TLS certificate errors will be ignored for this session
+1521466321830	geckodriver	INFO	geckodriver 0.19.1
+1521466321836	geckodriver	INFO	Listening on 127.0.0.1:64460
+1521466324907	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.rLU3HEiQnbcJ"
+1521466326934	Marionette	INFO	Listening on port 64469
+1521466328032	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1521466367069	Marionette	INFO	Ceased listening
+1521466372371	geckodriver::marionette	ERROR	Failed to kill browser process
+1521466467301	geckodriver	INFO	geckodriver 0.19.1
+1521466467308	geckodriver	INFO	Listening on 127.0.0.1:64667
+1521466470387	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.qaoridoBr6GF"
+1521466472423	Marionette	INFO	Listening on port 64675
+1521466473519	Marionette	WARN	TLS certificate errors will be ignored for this session
+1521466827230	geckodriver	INFO	geckodriver 0.19.1
+1521466827237	geckodriver	INFO	Listening on 127.0.0.1:64883
+1521466830316	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.zayCZwv6cWP6"
+1521466832226	Marionette	INFO	Listening on port 64892
+1521466832346	Marionette	WARN	TLS certificate errors will be ignored for this session
+1521466944692	geckodriver	INFO	geckodriver 0.19.1
+1521466944699	geckodriver	INFO	Listening on 127.0.0.1:65251
+1521466947788	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.Yit9XAWRwDe4"
+1521466950042	Marionette	INFO	Listening on port 65260
+1521466950913	Marionette	WARN	TLS certificate errors will be ignored for this session
+1521467195170	geckodriver	INFO	geckodriver 0.19.1
+1521467195176	geckodriver	INFO	Listening on 127.0.0.1:49192
+1521467198264	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.iauu3teOMbk8"
+1521467200364	Marionette	INFO	Listening on port 49201
+1521467201384	Marionette	WARN	TLS certificate errors will be ignored for this session
+1521468014830	geckodriver	INFO	geckodriver 0.19.1
+1521468014837	geckodriver	INFO	Listening on 127.0.0.1:50844
+1521468017923	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.1VcjqOEugjnx"
+1521468020397	Marionette	INFO	Listening on port 50852
+1521468021046	Marionette	WARN	TLS certificate errors will be ignored for this session
+1521468130655	geckodriver	INFO	geckodriver 0.19.1
+1521468130662	geckodriver	INFO	Listening on 127.0.0.1:51404
+1521468133743	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.ujYQlCiR7BcG"
+1521468136026	Marionette	INFO	Listening on port 51415
+1521468136860	Marionette	WARN	TLS certificate errors will be ignored for this session

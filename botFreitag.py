@@ -15,8 +15,8 @@ import time
 
 ''' for Window Client '''
 driver = webdriver.Firefox()
-profile = webdriver.FirefoxProfile()
-profile.accept_untrusted_certs = True
+# profile = webdriver.FirefoxProfile()
+# profile.accept_untrusted_certs = True
 
 line_bot_api = LineBotApi('fSDjokoamI2lnlDZE8GJ2+PoZBn8DHsDba8zCtW57zR++3X+Iiy5jwtMQFB1oynrcHd3pU4g5S3IikMXzTmCkPueLieW/ilvst42POA6I6cyt/+z3u13OPxjof+Jq12l046ITxA2+sSMC95uRwEdHQdB04t89/1O/w1cDnyilFU=')
 es = Elasticsearch()
@@ -34,8 +34,8 @@ for i in elemfilter:
         pureUrl = j.find_element(By.TAG_NAME,'a')
         url = pureUrl.get_attribute('href')
         url = url.split('?')[0]
-        # print(url)
         urlModel.append(url)
+
 urlRemove = [
     'https://www.freitag.ch/en/e002',
     'https://www.freitag.ch/en/e001',
@@ -43,16 +43,24 @@ urlRemove = [
     ]
 urlModel = [x for x in urlModel if x not in urlRemove]
 
+urlModel = urlModel[0:1]
+
 print(urlModel)
+newProduct = []
+
 for k in urlModel:
     driver.get(k)
     time.sleep(1)
     try:
         driver.find_element(By.ID,'products-load-all').click()
+        time.sleep(10)
     except:
         pass
     
     try:
+        model = driver.find_element(By.CLASS_NAME,'title')
+        namemodel = (model.text)
+        print(namemodel)
         allProduct = driver.find_element(By.CLASS_NAME,'products-list')
         product = allProduct.find_elements(By.TAG_NAME,'a')
         m = 1
@@ -70,10 +78,10 @@ for k in urlModel:
                 'img' : productImg,
             }
 
-            newProduct = []
+            
             ### Save to Elastic
             res = es.index(index="f-store-index", doc_type='tweet', id=idProduct, body=doc)
-            ### Sent to Line API
+            
             if res['result'] == 'created':
                 print('created', idProduct)
                 try:
@@ -91,18 +99,22 @@ for k in urlModel:
                     print(e.error)
             else:
                 print('updated')
-
-        image_carousel_template_message = TemplateSendMessage(
-                alt_text='Freitag',
-                template=ImageCarouselTemplate(
-                    columns= newProduct
-                )
-            )
-        line_bot_api.push_message('U9d261d005044ab0f2cba21b69278a155', image_carousel_template_message)
+        
             
     except:
         pass
 
+
+### Sent to Line API
+# image_carousel_template_message = TemplateSendMessage(
+#         alt_text='Now Arrival',
+#         template=ImageCarouselTemplate(
+#             columns= newProduct
+#         )
+#     )
+# # line_bot_api.push_message('U9d261d005044ab0f2cba21b69278a155', image_carousel_template_message)
+# user = ['Ub86505e4cdcf67fb339cc8018aad9306','U9d261d005044ab0f2cba21b69278a155']
+# line_bot_api.multicast(user,image_carousel_template_message)
     
 
 print('All Done')
