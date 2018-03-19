@@ -1,9 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from pyvirtualdisplay import Display
-import time
 from selenium.webdriver.common.by import By
 from elasticsearch import Elasticsearch
+from linebot import LineBotApi
+from linebot.models import TextSendMessage,ImageCarouselColumn,URITemplateAction,TemplateSendMessage,ImageCarouselTemplate
+from linebot.exceptions import LineBotApiError
+import time
 
 ''' for Ubuntu SERVER '''
 # cap = DesiredCapabilities().FIREFOX
@@ -12,7 +15,10 @@ from elasticsearch import Elasticsearch
 
 ''' for Window Client '''
 driver = webdriver.Firefox()
+profile = webdriver.FirefoxProfile()
+profile.accept_untrusted_certs = True
 
+line_bot_api = LineBotApi('fSDjokoamI2lnlDZE8GJ2+PoZBn8DHsDba8zCtW57zR++3X+Iiy5jwtMQFB1oynrcHd3pU4g5S3IikMXzTmCkPueLieW/ilvst42POA6I6cyt/+z3u13OPxjof+Jq12l046ITxA2+sSMC95uRwEdHQdB04t89/1O/w1cDnyilFU=')
 es = Elasticsearch()
 urlMain = "https://www.freitag.ch/en/shop/bags"
 
@@ -38,7 +44,6 @@ urlRemove = [
 urlModel = [x for x in urlModel if x not in urlRemove]
 
 print(urlModel)
-# exit()
 for k in urlModel:
     driver.get(k)
     time.sleep(1)
@@ -59,18 +64,45 @@ for k in urlModel:
             productImg = imgtag.get_attribute('src')
             print(m,idProduct,productUrl,productImg)
             m += 1
+            
             doc = {
                 'url' : productUrl,
                 'img' : productImg,
             }
+
+            newProduct = []
+            ### Save to Elastic
             res = es.index(index="f-store-index", doc_type='tweet', id=idProduct, body=doc)
+            ### Sent to Line API
             if res['result'] == 'created':
-                print('created')
+                print('created', idProduct)
+                try:
+                    product =  ImageCarouselColumn(
+                                    image_url = productImg,
+                                    action=URITemplateAction(
+                                        label='F-Finder',
+                                        uri= productUrl,
+                                    )
+                                )
+                    
+                    newProduct.append(product)
+                    
+                except LineBotApiError as e:
+                    print(e.error)
             else:
                 print('updated')
+
+        image_carousel_template_message = TemplateSendMessage(
+                alt_text='Freitag',
+                template=ImageCarouselTemplate(
+                    columns= newProduct
+                )
+            )
+        line_bot_api.push_message('U9d261d005044ab0f2cba21b69278a155', image_carousel_template_message)
+            
     except:
         pass
-    
+
     
 
 print('All Done')
