@@ -8,7 +8,7 @@ import time
 # display = Display(visible=0, size=(600, 400)).start()
 # driver = webdriver.Firefox(capabilities=cap, executable_path='/home/ubuntu/anaconda3/bin/geckodriver')
 
-''' for Window Client '''
+''' for Window & MAC Client '''
 driver = webdriver.Firefox()
 
 urlclean = [
@@ -30,12 +30,3 @@ for clean in urlclean:
 
 print('All Done')
 driver.close()    
-
-
-# assert "Python" in driver.title
-# elem = driver.find_element_by_name("q")
-# elem.clear()
-# elem.send_keys("pycon")
-# elem.send_keys(Keys.RETURN)
-# assert "No results found." not in driver.page_source
-# driver.close()

@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from pyvirtualdisplay import Display
 from selenium.webdriver.common.by import By
+from pyvirtualdisplay import Display
 from elasticsearch import Elasticsearch
 from linebot import LineBotApi
 from linebot.models import TextSendMessage,ImageCarouselColumn,URITemplateAction,TemplateSendMessage,ImageCarouselTemplate
@@ -58,9 +58,7 @@ for k in urlModel:
         pass
     
     try:
-        model = driver.find_element(By.CLASS_NAME,'title')
-        namemodel = (model.text)
-        print(namemodel)
+        namemodel = driver.find_element(By.CLASS_NAME,'title').text.split('\n')[0]
         allProduct = driver.find_element(By.CLASS_NAME,'products-list')
         product = allProduct.find_elements(By.TAG_NAME,'a')
         m = 1
@@ -77,7 +75,6 @@ for k in urlModel:
                 'url' : productUrl,
                 'img' : productImg,
             }
-
             
             ### Save to Elastic
             res = es.index(index="f-store-index", doc_type='tweet', id=idProduct, body=doc)
@@ -88,7 +85,7 @@ for k in urlModel:
                     product =  ImageCarouselColumn(
                                     image_url = productImg,
                                     action=URITemplateAction(
-                                        label='F-Finder',
+                                        label=namemodel,
                                         uri= productUrl,
                                     )
                                 )
