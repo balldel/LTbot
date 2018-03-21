@@ -58,13 +58,13 @@ while newpage:
             'url' : url,
             'startdate' : startdate,
             'enddate' : enddate,
-            'duration' : duration,
-            'price' : price,
-            'discount' : discount
+            'duration' : int(duration),
+            'price' : float(price),
+            'discount' : float(discount)
         }
                 
         ### Save to Elastic
-        res = es.index(index="dreamtrip-index", doc_type='trip', id=ids, body=doc)
+        res = es.index(index="test-dreamtrip-index", doc_type='trip', id=ids, body=doc)
         
         if res['result'] == 'created':
             print(m,'created',ids)

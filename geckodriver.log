@@ -3608,3 +3608,42 @@ JavaScript warning: https://www.googletagmanager.com/gtag/js?id=UA-12395217-16, 
 JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
 JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
 1521532819081	Marionette	INFO	Ceased listening
+1521638441572	geckodriver	INFO	geckodriver 0.19.1
+1521638441578	geckodriver	INFO	Listening on 127.0.0.1:53659
+1521638444684	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.OvoMoTIDhSUg"
+1521638447324	Marionette	INFO	Listening on port 53667
+1521638447809	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1521638593305	Marionette	INFO	Ceased listening
+1521638600083	geckodriver	INFO	geckodriver 0.19.1
+1521638600090	geckodriver	INFO	Listening on 127.0.0.1:54300
+1521638603170	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.K2IJCC8HUfdI"
+1521638605452	Marionette	INFO	Listening on port 54308
+1521638606292	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1521638723934	Marionette	INFO	Ceased listening
+1521639774548	geckodriver	INFO	geckodriver 0.19.1
+1521639774555	geckodriver	INFO	Listening on 127.0.0.1:55124
+1521639777657	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.RVS2m8BU0pFi"
+1521639779970	Marionette	INFO	Listening on port 55132
+1521639780785	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1521642542063	Marionette	INFO	Ceased listening
