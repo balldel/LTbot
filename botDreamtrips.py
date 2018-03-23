@@ -6,6 +6,7 @@ from elasticsearch import Elasticsearch
 from linebot import LineBotApi
 from linebot.models import TextSendMessage,ImageCarouselColumn,URITemplateAction,TemplateSendMessage,ImageCarouselTemplate
 from linebot.exceptions import LineBotApiError
+from datetime import datetime as dt
 import time
 
 ''' for Ubuntu SERVER '''
@@ -31,7 +32,7 @@ driver.find_element(By.ID,'popuppassword').send_keys('F@123456')
 driver.find_element(By.CLASS_NAME ,'loginpopupsubmit').click()
 time.sleep(2)
 driver.find_element(By.ID,'frm_4_Search').click()
-time.sleep(2)
+time.sleep(5)
 
 m = 1
 newpage = True
@@ -43,8 +44,8 @@ while newpage:
         url = t.find_elements(By.TAG_NAME,'a')[2].get_attribute('href')
         ids = url.split('/')[4]
         dates = t.find_element(By.CLASS_NAME, 'ng-binding').text.split('-')
-        startdate = dates[0]
-        enddate = dates[1]
+        startdate = dt.strptime(dates[0].strip() , '%b %d %Y')
+        enddate = dt.strptime(dates[1].strip() , '%b %d %Y')
         duration = t.find_element(By.CLASS_NAME, 'results-trip-duration').text.split(' ')[0]
         price = t.find_element(By.CLASS_NAME, 'results-price').find_element(By.TAG_NAME,'b').text.split('$')[1].split('.')[0]
         try:
@@ -64,18 +65,26 @@ while newpage:
         }
                 
         ### Save to Elastic
+<<<<<<< HEAD
         res = es.index(index="test-dreamtrip-index", doc_type='trip', id=ids, body=doc)
+=======
+        starttime = dt.today()
+        res = es.index(index="dreamtrips-index", doc_type='trip', id=ids, body=doc)
+>>>>>>> 84759530122e6fc43b70b334f4f1290e6a6b8b8c
         
         if res['result'] == 'created':
-            print(m,'created',ids)
+            statusdb = 'created'
             
         else:
-            print(m,'updated',ids)
+            statusdb = 'updated'
+        endtime = dt.today()
+        totaltime = endtime - starttime
+        print(m,statusdb,ids,totaltime)
         m += 1
     ### Check new page
     try:
         driver.find_element(By.CLASS_NAME,'fa-caret-right').click()
-        time.sleep(5)
+        time.sleep(3)
     except:
         newpage = False
         
