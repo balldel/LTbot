@@ -3708,3 +3708,29 @@ JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 
 =======
 1521705094008	Marionette	INFO	Ceased listening
 >>>>>>> 84759530122e6fc43b70b334f4f1290e6a6b8b8c
+1521771424919	geckodriver	INFO	geckodriver 0.19.1
+1521771424926	geckodriver	INFO	Listening on 127.0.0.1:62615
+1521771428040	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.2afBO4NC1VpI"
+1521771430787	Marionette	INFO	Listening on port 62623
+1521771431164	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+JavaScript error: resource://gre/components/nsUrlClassifierListManager.js, line 287: NS_ERROR_NOT_INITIALIZED:1521774134434	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox54\\firefox.exe" "-marionette" "-profile" "C:\\Users\\ball_\\AppData\\Local\\Temp\\rust_mozprofile.XEDf7k6bJExC"
+1521774136833	Marionette	INFO	Listening on port 53391
+1521774137559	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://www.dreamtrips.com/combres.axd/siteJs/121109po, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************

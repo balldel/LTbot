@@ -27,8 +27,8 @@ driver.get(urlMain)
 time.sleep(1)
 
 driver.find_element(By.LINK_TEXT,'Log In').click()
-driver.find_element(By.ID,'popupusername').send_keys('64349592')
-driver.find_element(By.ID,'popuppassword').send_keys('F@123456')
+driver.find_element(By.ID,'popupusername').send_keys('64094106')
+driver.find_element(By.ID,'popuppassword').send_keys('Rr888822')
 driver.find_element(By.CLASS_NAME ,'loginpopupsubmit').click()
 time.sleep(2)
 driver.find_element(By.ID,'frm_4_Search').click()
@@ -65,12 +65,8 @@ while newpage:
         }
                 
         ### Save to Elastic
-<<<<<<< HEAD
-        res = es.index(index="test-dreamtrip-index", doc_type='trip', id=ids, body=doc)
-=======
         starttime = dt.today()
         res = es.index(index="dreamtrips-index", doc_type='trip', id=ids, body=doc)
->>>>>>> 84759530122e6fc43b70b334f4f1290e6a6b8b8c
         
         if res['result'] == 'created':
             statusdb = 'created'
