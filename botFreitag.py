@@ -19,7 +19,7 @@ driver = webdriver.Firefox()
 # profile.accept_untrusted_certs = True
 
 line_bot_api = LineBotApi('fSDjokoamI2lnlDZE8GJ2+PoZBn8DHsDba8zCtW57zR++3X+Iiy5jwtMQFB1oynrcHd3pU4g5S3IikMXzTmCkPueLieW/ilvst42POA6I6cyt/+z3u13OPxjof+Jq12l046ITxA2+sSMC95uRwEdHQdB04t89/1O/w1cDnyilFU=')
-es = Elasticsearch()
+es = Elasticsearch('https://search-test-bot-esek4kvzcdw2qmdhyqqhpi2ldq.ap-southeast-1.es.amazonaws.com')
 urlMain = "https://www.freitag.ch/en/shop/bags"
 
 driver.get(urlMain)
@@ -43,7 +43,8 @@ urlRemove = [
     ]
 urlModel = [x for x in urlModel if x not in urlRemove]
 
-urlModel = urlModel[0:1]
+# ## config for test
+# urlModel = urlModel[0:1]
 
 print(urlModel)
 newProduct = []
@@ -77,7 +78,7 @@ for k in urlModel:
             }
             
             ### Save to Elastic
-            res = es.index(index="f-store-index", doc_type='tweet', id=idProduct, body=doc)
+            res = es.index(index="f-store-index", doc_type='product', id=idProduct, body=doc)
             
             if res['result'] == 'created':
                 print('created', idProduct)
@@ -109,6 +110,7 @@ for k in urlModel:
 #             columns= newProduct
 #         )
 #     )
+# ## LINE ID Dell: U9d261d005044ab0f2cba21b69278a155 || Ness : Ub86505e4cdcf67fb339cc8018aad9306
 # # line_bot_api.push_message('U9d261d005044ab0f2cba21b69278a155', image_carousel_template_message)
 # user = ['Ub86505e4cdcf67fb339cc8018aad9306','U9d261d005044ab0f2cba21b69278a155']
 # line_bot_api.multicast(user,image_carousel_template_message)
