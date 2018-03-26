@@ -9,14 +9,12 @@ from linebot.exceptions import LineBotApiError
 import time
 
 ''' for Ubuntu SERVER '''
-# cap = DesiredCapabilities().FIREFOX
-# display = Display(visible=0, size=(600, 400)).start()
-# driver = webdriver.Firefox(capabilities=cap, executable_path='/home/ubuntu/anaconda3/bin/geckodriver')
+cap = DesiredCapabilities().FIREFOX
+display = Display(visible=0, size=(600, 400)).start()
+driver = webdriver.Firefox(capabilities=cap, executable_path='/home/ubuntu/anaconda3/bin/geckodriver')
 
 ''' for Window Client '''
-driver = webdriver.Firefox()
-# profile = webdriver.FirefoxProfile()
-# profile.accept_untrusted_certs = True
+# driver = webdriver.Firefox()
 
 line_bot_api = LineBotApi('fSDjokoamI2lnlDZE8GJ2+PoZBn8DHsDba8zCtW57zR++3X+Iiy5jwtMQFB1oynrcHd3pU4g5S3IikMXzTmCkPueLieW/ilvst42POA6I6cyt/+z3u13OPxjof+Jq12l046ITxA2+sSMC95uRwEdHQdB04t89/1O/w1cDnyilFU=')
 es = Elasticsearch('https://search-test-bot-esek4kvzcdw2qmdhyqqhpi2ldq.ap-southeast-1.es.amazonaws.com')
@@ -46,10 +44,15 @@ urlModel = [x for x in urlModel if x not in urlRemove]
 # ## config for test
 # urlModel = urlModel[0:1]
 
-print(urlModel)
+urlModel = list(set(urlModel))
+print(len(urlModel))
+
+# exit()
+
 newProduct = []
 
 for k in urlModel:
+    print(urlModel.index(k))
     driver.get(k)
     time.sleep(1)
     try:
@@ -69,7 +72,7 @@ for k in urlModel:
             idProduct = productUrl.split('=')[1]
             imgtag = l.find_element(By.TAG_NAME,'img')
             productImg = imgtag.get_attribute('src')
-            print(m,idProduct,productUrl,productImg)
+            # print(m,idProduct,productUrl,productImg)
             m += 1
             
             doc = {
@@ -92,28 +95,40 @@ for k in urlModel:
                                 )
                     
                     newProduct.append(product)
-                    
+                    if len(newProduct) == 10:
+                        ## Sent to Line API
+                        image_carousel_template_message = TemplateSendMessage(
+                            alt_text='Now Arrival',
+                            template=ImageCarouselTemplate(
+                                columns= newProduct
+                            )
+                        )
+                        user = ['Ub86505e4cdcf67fb339cc8018aad9306','U9d261d005044ab0f2cba21b69278a155']
+                        line_bot_api.multicast(user,image_carousel_template_message)
+
+                        newProduct = []                            
+
                 except LineBotApiError as e:
                     print(e.error)
             else:
-                print('updated')
-        
+                # print('updated')
+                pass
             
     except:
         pass
 
 
-### Sent to Line API
-# image_carousel_template_message = TemplateSendMessage(
-#         alt_text='Now Arrival',
-#         template=ImageCarouselTemplate(
-#             columns= newProduct
-#         )
-#     )
-# ## LINE ID Dell: U9d261d005044ab0f2cba21b69278a155 || Ness : Ub86505e4cdcf67fb339cc8018aad9306
-# # line_bot_api.push_message('U9d261d005044ab0f2cba21b69278a155', image_carousel_template_message)
-# user = ['Ub86505e4cdcf67fb339cc8018aad9306','U9d261d005044ab0f2cba21b69278a155']
-# line_bot_api.multicast(user,image_carousel_template_message)
+## Sent to Line API
+image_carousel_template_message = TemplateSendMessage(
+        alt_text='Now Arrival',
+        template=ImageCarouselTemplate(
+            columns= newProduct
+        )
+    )
+## LINE ID Dell: U9d261d005044ab0f2cba21b69278a155 || Ness : Ub86505e4cdcf67fb339cc8018aad9306
+# line_bot_api.push_message('U9d261d005044ab0f2cba21b69278a155', image_carousel_template_message)
+user = ['Ub86505e4cdcf67fb339cc8018aad9306','U9d261d005044ab0f2cba21b69278a155']
+line_bot_api.multicast(user,image_carousel_template_message)
     
 
 print('All Done')
