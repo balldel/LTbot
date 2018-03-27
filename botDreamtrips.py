@@ -20,11 +20,11 @@ driver = webdriver.Firefox()
 # profile.accept_untrusted_certs = True
 
 line_bot_api = LineBotApi('fSDjokoamI2lnlDZE8GJ2+PoZBn8DHsDba8zCtW57zR++3X+Iiy5jwtMQFB1oynrcHd3pU4g5S3IikMXzTmCkPueLieW/ilvst42POA6I6cyt/+z3u13OPxjof+Jq12l046ITxA2+sSMC95uRwEdHQdB04t89/1O/w1cDnyilFU=')
-es = Elasticsearch()
+es = Elasticsearch('https://search-test-bot-esek4kvzcdw2qmdhyqqhpi2ldq.ap-southeast-1.es.amazonaws.com')
 urlMain = "https://www.dreamtrips.com"
 
 driver.get(urlMain)
-time.sleep(1)
+time.sleep(2)
 
 driver.find_element(By.LINK_TEXT,'Log In').click()
 driver.find_element(By.ID,'popupusername').send_keys('64094106')
@@ -33,10 +33,11 @@ driver.find_element(By.CLASS_NAME ,'loginpopupsubmit').click()
 time.sleep(2)
 driver.find_element(By.ID,'frm_4_Search').click()
 time.sleep(5)
-
+allresults = driver.find_element(By.ID,'divResoultsFoundText').text.split(' ')[3]
+allresults = int(allresults)
 m = 1
 newpage = True
-while newpage:
+while m <= allresults:
     trips = driver.find_elements(By.CLASS_NAME, 'resultsContent')
     for t in trips:
         title = t.find_elements(By.CLASS_NAME, 'wrapper')[0].text
@@ -65,7 +66,7 @@ while newpage:
         }
                 
         ### Save to Elastic
-        starttime = dt.today()
+        # starttime = dt.today()
         res = es.index(index="dreamtrips-index", doc_type='trip', id=ids, body=doc)
         
         if res['result'] == 'created':
@@ -73,27 +74,17 @@ while newpage:
             
         else:
             statusdb = 'updated'
-        endtime = dt.today()
-        totaltime = endtime - starttime
-        print(m,statusdb,ids,totaltime)
+        # endtime = dt.today()
+        # totaltime = endtime - starttime
+        print(m,statusdb,ids)
         m += 1
     ### Check new page
     try:
         driver.find_element(By.CLASS_NAME,'fa-caret-right').click()
         time.sleep(3)
     except:
-        newpage = False
+        quit()
         
-### Sent to Line API
-# image_carousel_template_message = TemplateSendMessage(
-#         alt_text='Now Arrival',
-#         template=ImageCarouselTemplate(
-#             columns= newProduct
-#         )
-#     )
-# # line_bot_api.push_message('U9d261d005044ab0f2cba21b69278a155', image_carousel_template_message)
-# user = ['Ub86505e4cdcf67fb339cc8018aad9306','U9d261d005044ab0f2cba21b69278a155']
-# line_bot_api.multicast(user,image_carousel_template_message)
     
 print('All Done')
 driver.close()    
