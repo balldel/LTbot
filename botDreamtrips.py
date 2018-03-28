@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from pyvirtualdisplay import Display
 from elasticsearch import Elasticsearch
 from linebot import LineBotApi
@@ -10,14 +12,14 @@ from datetime import datetime as dt
 import time
 
 ''' for Ubuntu SERVER '''
-# cap = DesiredCapabilities().FIREFOX
-# display = Display(visible=0, size=(600, 400)).start()
-# driver = webdriver.Firefox(capabilities=cap, executable_path='/home/ubuntu/anaconda3/bin/geckodriver')
+cap = DesiredCapabilities().FIREFOX
+display = Display(visible=0, size=(800, 600)).start()
+driver = webdriver.Firefox(capabilities=cap, executable_path='/home/ubuntu/anaconda3/bin/geckodriver')
 
 ''' for Window Client '''
-driver = webdriver.Firefox()
-# profile = webdriver.FirefoxProfile()
-# profile.accept_untrusted_certs = True
+# driver = webdriver.Firefox()
+
+wait = WebDriverWait(driver, 10)
 
 line_bot_api = LineBotApi('fSDjokoamI2lnlDZE8GJ2+PoZBn8DHsDba8zCtW57zR++3X+Iiy5jwtMQFB1oynrcHd3pU4g5S3IikMXzTmCkPueLieW/ilvst42POA6I6cyt/+z3u13OPxjof+Jq12l046ITxA2+sSMC95uRwEdHQdB04t89/1O/w1cDnyilFU=')
 es = Elasticsearch('https://search-test-bot-esek4kvzcdw2qmdhyqqhpi2ldq.ap-southeast-1.es.amazonaws.com')
@@ -26,7 +28,9 @@ urlMain = "https://www.dreamtrips.com"
 driver.get(urlMain)
 time.sleep(2)
 
-driver.find_element(By.LINK_TEXT,'Log In').click()
+# driver.find_element(By.LINK_TEXT,'Log In').click()
+loginicon = wait.until(EC.presence_of_element_located((By.LINK_TEXT, 'Log In')))
+loginicon.click()
 driver.find_element(By.ID,'popupusername').send_keys('64094106')
 driver.find_element(By.ID,'popuppassword').send_keys('Rr888822')
 driver.find_element(By.CLASS_NAME ,'loginpopupsubmit').click()
@@ -38,7 +42,7 @@ allresults = int(allresults)
 m = 1
 newpage = True
 while m <= allresults:
-    trips = driver.find_elements(By.CLASS_NAME, 'resultsContent')
+    trips = wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'resultsContent')))
     for t in trips:
         title = t.find_elements(By.CLASS_NAME, 'wrapper')[0].text
         place = t.find_elements(By.CLASS_NAME, 'wrapper')[1].text
@@ -81,7 +85,7 @@ while m <= allresults:
     ### Check new page
     try:
         driver.find_element(By.CLASS_NAME,'fa-caret-right').click()
-        time.sleep(3)
+        time.sleep(5)
     except:
         quit()
         
