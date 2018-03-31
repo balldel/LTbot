@@ -32,7 +32,7 @@ for clean in urlclean:
         print('Cant Access')
         linetext = linetext + clean['name'] + ': ERROR!!\n'
 
-line_bot_api.push_message('U9d261d005044ab0f2cba21b69278a155', TextSendMessage(text=linetext))
+# line_bot_api.push_message('U9d261d005044ab0f2cba21b69278a155', TextSendMessage(text=linetext))
 
 print('All Done')
 driver.close()    
